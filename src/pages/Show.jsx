@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function Show({ people, updatePeople, deletePeople, history }) {
+function Show({ people, updatePeople, deletePeople }) {
   const { id } = useParams();
   const person = people.find((p) => p._id === id);
   let navigate = useNavigate();
@@ -26,7 +26,6 @@ function Show({ people, updatePeople, deletePeople, history }) {
 
   const removePerson = () => {
     deletePeople(person._id);
-    history.push('/');
     navigate('/');
   };
 
@@ -60,7 +59,7 @@ function Show({ people, updatePeople, deletePeople, history }) {
           placeholder="title"
           onChange={handleChange}
         />
-        <button type="submit">Update Person</button>
+        <input type="submit" value="Update Person" />
       </form>
     </div>
   );
