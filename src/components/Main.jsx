@@ -35,6 +35,13 @@ function Main(props) {
     getPeople();
   };
 
+  const deletePeople = async (id) => {
+    await fetch(URL + id, {
+      method: 'DELETE',
+    });
+    getPeople();
+  };
+
   useEffect(() => {
     getPeople();
   }, []);
@@ -47,7 +54,16 @@ function Main(props) {
           path="/"
           element={<Index people={people} createPeople={createPeople} />}
         />
-        <Route path="/people/:id" element={<Show people={people} />} />
+        <Route
+          path="/people/:id"
+          element={
+            <Show
+              people={people}
+              updatePeople={updatePeople}
+              deletePeople={deletePeople}
+            />
+          }
+        />
       </Routes>
     </main>
   );
