@@ -14,9 +14,7 @@ function Index({ people, createPeople }) {
     ));
   };
   // Loading Function
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
+  const loading = () => <h1>Loading...</h1>;
 
   return people ? loaded() : loading();
 }
