@@ -67,7 +67,7 @@ function Index({ people, createPeople }) {
           placeholder="title"
           onChange={handleChange}
         />
-        <input type="submit" value="Create Person" />
+        <button type="submit">Create Person</button>
       </form>
       {people ? loaded() : loading()}
     </section>
