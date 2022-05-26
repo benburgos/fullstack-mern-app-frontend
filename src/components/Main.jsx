@@ -31,7 +31,6 @@ function Main(props) {
     <main>
       <Routes>
         <Route
-          exact
           path="/"
           element={<Index people={people} createPeople={createPeople} />}
         />
