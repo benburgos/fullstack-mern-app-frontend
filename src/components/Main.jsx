@@ -6,7 +6,7 @@ import Show from '../pages/Show';
 function Main(props) {
   const [people, setPeople] = useState(null);
 
-  const URL = 'https://bb-fullstack-mern-app-backend.herokuapp.com/people';
+  const URL = 'https://bb-fullstack-mern-app-backend.herokuapp.com/people/';
 
   const getPeople = async () => {
     const data = await fetch(URL).then((response) => response.json());
@@ -16,6 +16,17 @@ function Main(props) {
   const createPeople = async (person) => {
     await fetch(URL, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'Application/json',
+      },
+      body: JSON.stringify(person),
+    });
+    getPeople();
+  };
+
+  const updatePeople = async (person, id) => {
+    await fetch(URL + id, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'Application/json',
       },
